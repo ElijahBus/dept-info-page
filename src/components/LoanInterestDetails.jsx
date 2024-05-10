@@ -17,7 +17,7 @@ const LoanInterestDetails = () => {
   }, []);
 
   return (
-    <div className="bg-white rounded-lg w-[40%] mb-12">
+    <div className="bg-white rounded-lg w-[45%] mb-12">
       {/* Card header */}
       <div
         className="w-full flex  items-center px-5 h-16 border-b-[0.01em] border-gray-200 text-sm">
@@ -32,27 +32,34 @@ const LoanInterestDetails = () => {
           <tbody className="w-full">
           {
             loading ?
-              <div className="w-full py-2 flex items-center justify-center">
-                <LoadingSpinner/>
-              </div>
+              <tr>
+                <td>
+                  <span className="w-full py-2 flex items-center justify-center">
+                    <LoadingSpinner/>
+                  </span>
+                </td>
+              </tr>
               : <>
                 <tr className="h-20">
                   <td>
                     <p className="text-gray-600 text-xs">Interest rate</p>
-                    <p className="font-medium text-xl">2.5%</p>
+                    <p
+                      className="font-medium text-xl">{`${interestDetails?.interest_rate}%`}</p>
                   </td>
 
                   <td>
                     <p className="text-gray-600 text-sm">Interest only period</p>
                     <p>
-                      <span className="font-medium text-xl">12 </span>
+                      <span
+                        className="font-medium text-xl">{interestDetails?.interest_only_period} </span>
                       <span className="text-xs text-gray-600">months</span>
                     </p>
                   </td>
 
                   <td>
                     <p className="text-gray-600 text-xs">Rate type</p>
-                    <p className="font-medium text-xl">Fixed</p>
+                    <p
+                      className="font-medium text-xl">{interestDetails?.rate_type}</p>
                   </td>
                 </tr>
 
@@ -60,12 +67,14 @@ const LoanInterestDetails = () => {
                   <td>
                     <p className="text-gray-600 text-xs">Principal Paydown
                       Start</p>
-                    <p className="font-medium text-lg">12/05/2023</p>
+                    <p
+                      className="font-medium text-lg">{interestDetails?.principal_pay_down_start}</p>
                   </td>
 
                   <td>
                     <p className="text-gray-600 text-xs">Maturation Date</p>
-                    <p className="font-medium text-lg">12/05/2023</p>
+                    <p
+                      className="font-medium text-lg">{interestDetails?.maturation_date}</p>
                   </td>
                 </tr>
               </>

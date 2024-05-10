@@ -21,10 +21,10 @@ const LoanBankDetails = () => {
     <>
       {
         loading
-          ? <div className="w-full py-2 flex items-center justify-center">
+          ? <div className="w-[55%] py-2 flex items-center justify-center">
             <LoadingSpinner/>
           </div>
-          : <div className="bg-white rounded-lg w-[60%]">
+          : <div className="bg-white rounded-lg w-[55%]">
             {/* Card header */}
             <div
               className="w-full flex justify-around items-center px-5 h-16 border-b-[0.01em] border-gray-200 text-sm">
@@ -103,7 +103,7 @@ const LoanBankDetails = () => {
             <div
               className="w-full flex justify-between px-10 h-12 items-center bg-teal-950 text-white rounded-b-lg">
               <p className="text-lg caption font-semibold">Monthly payment</p>
-              <p className="text-lg text-[#C5FBFB] font-semibold">
+              <p className="text-2xl text-[#C5FBFB] font-semibold">
                 <sup>$</sup>1,720
               </p>
             </div>

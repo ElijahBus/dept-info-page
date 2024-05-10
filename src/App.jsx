@@ -8,6 +8,7 @@ import DeptSchedule from './components/DeptSchedule.jsx';
 
 import seeDownIcon from './assets/see-down.svg';
 import backTopIcon from './assets/back-top.svg';
+import selectIcon from './assets/select.svg';
 
 function App() {
   return (
@@ -25,10 +26,12 @@ function App() {
             <div className="w-full h-14 flex items-center px-10 bg-white">
               <h2 className="text-gray-800 font-semibold">Loan Details</h2>
 
-              <div className="flex-1 text-center">
+              <div
+                className="flex-1 text-center flex justify-center items-center">
                 <button
-                  className="border-[0.1em] rounded-lg border-gray-200 py-2 px-4 text-md text-gray-800 font-semibold">
+                  className="ml-[-150px] flex items-center gap-2 border-[0.1em] rounded-lg border-gray-200 py-2 px-4 text-md text-gray-800 font-semibold">
                   <span>Bank of America - Lighthouse Storage Bate...</span>
+                  <img src={selectIcon} alt="Select Icon"/>
                 </button>
               </div>
             </div>
@@ -59,7 +62,11 @@ function App() {
               </button>
 
               <button
-                className="bg-white border-gray-300 border-[0.1em] p-2 rounded-lg text-sm flex items-center justify-center gap-2">
+                className="bg-white border-gray-300 border-[0.1em] p-2 rounded-lg text-sm flex items-center justify-center gap-2"
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                }}
+              >
                 <img src={backTopIcon} alt="Back to top icon"/>
                 <span>Back on top</span>
               </button>

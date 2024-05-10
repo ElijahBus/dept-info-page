@@ -132,7 +132,7 @@ export const fetchDeptInfoChartData = () => {
         ],
 
         principals: [
-          7000, 9000, 12000, 13000, 22000, 20000, 10000, 18000, 20000, 22000, 22000, 23000,
+          7000, 9000, 12000, 13000, 22000, 20000, 10000, 18000, 20000, 22000, 20000, 23000,
         ],
 
         dates: [
@@ -193,7 +193,7 @@ export const fetchInterestDetails = () => {
       };
 
       resolve(interestDetails);
-    }, 1000);
+    }, 200);
   });
 };
 

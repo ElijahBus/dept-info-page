@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
+import ApexCharts from "apexcharts";
 import { fetchDeptInfoChartData } from '../data-source/mock-data.js';
 import LoadingSpinner from './LoadingSpinner.jsx';
 
@@ -19,10 +20,12 @@ const LoanInterestChart = () => {
           {
             name: 'Interests',
             data: chartData.interests,
+            color: '#1c448e',
           },
           {
             name: 'Principal',
             data: chartData.principals,
+            color: '#e2725b',
           },
         ]);
 
@@ -79,6 +82,18 @@ const LoanInterestChart = () => {
                 },
               ],
             },
+            tooltip: {
+              enabled: true,
+              marker: {
+                show: false,
+              },
+              // eslint-disable-next-line no-unused-vars
+              custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+                return '<div class="arrow_box px-4 py-2 bg-gray-800 rounded-lg">' +
+                  '<span class="text-gray-200 text-xs">' + new Date(w.globals.labels[dataPointIndex]).toDateString() + '</span>' +
+                  '</div>';
+              },
+            },
           },
         );
 
@@ -93,10 +108,15 @@ const LoanInterestChart = () => {
         {/* Custom legend */}
         <div className="flex items-center p-8">
           <div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 cursor-default"
+                 onClick={() => {
+                   ApexCharts.exec('depts-chart', 'toggleSeries', 'Principal');
+                 }}
+            >
               <div className="h-3 w-3 bg-[#1C448E]"></div>
               <span className="text-sm text-gray-500">Interest</span>
             </div>
+
             <p className="text-xl text-gray-800 font-semibold">
               <sup>$</sup>1,254,011
               <span
@@ -105,7 +125,11 @@ const LoanInterestChart = () => {
           </div>
 
           <div className="ml-16">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 cursor-default"
+                 onClick={() => {
+                   ApexCharts.exec('depts-chart', 'toggleSeries', 'Interests')
+                 }}
+            >
               <div className="h-3 w-3 bg-[#E2725B]"></div>
               <span className="text-sm text-gray-500">Principal</span>
             </div>
@@ -127,6 +151,7 @@ const LoanInterestChart = () => {
               type="line"
               width="100%"
               height="300"
+              id="depts-chart"
             />
         }
       </div>
